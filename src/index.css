@@ -1,0 +1,804 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=MedievalSharp&family=Cinzel:wght@400;600;700&family=EB+Garamond:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DIVINE DESIGN SYSTEM - Percy Jackson Inspired */
+@layer base {
+  :root {
+    /* Core Divine Colors */
+    --background: 240 15% 6%;
+    --foreground: 45 85% 85%;
+    
+    /* Divine Gold Palette */
+    --divine-gold: 51 100% 50%;
+    --divine-gold-bright: 54 100% 62%;
+    --divine-gold-deep: 45 85% 35%;
+    --divine-gold-foreground: 240 15% 6%;
+    
+    /* Mystical Purple Palette */
+    --mystical-purple: 258 85% 35%;
+    --mystical-purple-bright: 258 85% 55%;
+    --mystical-purple-deep: 258 85% 25%;
+    --mystical-purple-foreground: 45 85% 85%;
+    
+    /* Celestial Blue Palette */
+    --celestial-blue: 210 100% 56%;
+    --celestial-blue-bright: 210 100% 70%;
+    --celestial-blue-deep: 210 100% 35%;
+    
+    /* Divine Blood/Health */
+    --divine-blood: 0 75% 35%;
+    --divine-blood-bright: 0 75% 55%;
+    --vital-green: 120 60% 50%;
+    
+    /* Cosmic Night */
+    --cosmic-night: 240 25% 8%;
+    --cosmic-night-light: 240 20% 12%;
+    --starlight: 45 85% 85%;
+    --papyrus: 45 35% 85%;
+    --papyrus-aged: 45 25% 75%;
+    
+    /* Semantic Token Mapping */
+    --primary: var(--divine-gold);
+    --primary-foreground: var(--divine-gold-foreground);
+    --primary-muted: var(--divine-gold-deep);
+    
+    --secondary: var(--mystical-purple);
+    --secondary-foreground: var(--mystical-purple-foreground);
+    --secondary-bright: var(--mystical-purple-bright);
+    
+    --accent: var(--celestial-blue);
+    --accent-foreground: var(--cosmic-night);
+    --accent-bright: var(--celestial-blue-bright);
+    
+    --destructive: var(--divine-blood);
+    --destructive-foreground: var(--starlight);
+    
+    --card: var(--cosmic-night-light);
+    --card-foreground: var(--starlight);
+    
+    --popover: var(--cosmic-night);
+    --popover-foreground: var(--starlight);
+    
+    --muted: var(--cosmic-night-light);
+    --muted-foreground: var(--papyrus-aged);
+    
+    --border: var(--mystical-purple-deep);
+    --input: var(--cosmic-night-light);
+    --ring: var(--divine-gold);
+    
+    --radius: 0.75rem;
+    
+    /* Divine Gradients */
+    --gradient-divine: linear-gradient(135deg, hsl(var(--mystical-purple-deep)), hsl(var(--mystical-purple)), hsl(var(--celestial-blue-deep)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--divine-gold-deep)), hsl(var(--divine-gold)), hsl(var(--divine-gold-bright)));
+    --gradient-power: linear-gradient(90deg, hsl(var(--mystical-purple-deep)), hsl(var(--mystical-purple-bright)), hsl(var(--celestial-blue)), hsl(var(--divine-gold)));
+    --gradient-health: linear-gradient(90deg, hsl(var(--divine-blood)), hsl(var(--divine-blood-bright)));
+    --gradient-mana: linear-gradient(90deg, hsl(var(--mystical-purple-deep)), hsl(var(--mystical-purple-bright)));
+    
+    /* Divine Shadows */
+    --shadow-divine: 0 10px 30px -10px hsl(var(--mystical-purple) / 0.5);
+    --shadow-gold: 0 0 20px hsl(var(--divine-gold) / 0.3);
+    --shadow-cosmic: 0 25px 50px -12px hsl(var(--cosmic-night) / 0.8);
+    
+    /* Critical States - Progressive */
+    --blood-red: 0 75% 25%;
+    --chaos-dark: 0 0% 10%;
+    --despair-purple: 270 30% 15%;
+    --madness-yellow: 50 80% 40%;
+    --insanity-green: 120 50% 20%;
+    --chaos-gradient: linear-gradient(135deg, hsl(var(--blood-red)), hsl(var(--chaos-dark)), hsl(var(--despair-purple)));
+    --madness-gradient: linear-gradient(135deg, hsl(var(--madness-yellow)), hsl(var(--insanity-green)), hsl(var(--despair-purple)));
+
+    /* God Themes */
+    /* Hélio */
+    --helio-gold: 45 100% 60%;
+    --helio-orange: 30 100% 50%;
+    --helio-light: 60 100% 85%;
+    --helio-gradient: linear-gradient(135deg, hsl(var(--helio-gold)), hsl(var(--helio-orange)));
+    
+    /* Ártemis */
+    --artemis-silver: 210 20% 75%;
+    --artemis-blue: 200 80% 40%;
+    --artemis-moon: 210 30% 85%;
+    --artemis-gradient: linear-gradient(135deg, hsl(var(--artemis-silver)), hsl(var(--artemis-blue)));
+    
+    /* Hécate */
+    --hecate-purple: 280 80% 30%;
+    --hecate-dark: 280 50% 15%;
+    --hecate-magic: 300 100% 60%;
+    --hecate-gradient: linear-gradient(135deg, hsl(var(--hecate-dark)), hsl(var(--hecate-purple)), hsl(var(--hecate-magic)));
+    
+    /* Dionísio */
+    --dionysus-wine: 320 70% 40%;
+    --dionysus-grape: 280 60% 50%;
+    --dionysus-party: 45 80% 60%;
+    --dionysus-gradient: linear-gradient(135deg, hsl(var(--dionysus-wine)), hsl(var(--dionysus-grape)), hsl(var(--dionysus-party)));
+    
+    /* Deméter */
+    --demeter-green: 120 60% 40%;
+    --demeter-earth: 30 40% 30%;
+    --demeter-harvest: 50 80% 50%;
+    --demeter-gradient: linear-gradient(135deg, hsl(var(--demeter-earth)), hsl(var(--demeter-green)), hsl(var(--demeter-harvest)));
+    
+    /* Poseidon */
+    --poseidon-blue: 200 100% 40%;
+    --poseidon-deep: 210 100% 20%;
+    --poseidon-foam: 180 80% 70%;
+    --poseidon-gradient: linear-gradient(135deg, hsl(var(--poseidon-deep)), hsl(var(--poseidon-blue)), hsl(var(--poseidon-foam)));
+
+    /* Animation Variables */
+    --transition-divine: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition-power: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-serif;
+    font-family: 'EB Garamond', serif;
+    background: linear-gradient(135deg, hsl(var(--cosmic-night) / 0.95) 0%, hsl(var(--cosmic-night-light) / 0.9) 50%, hsl(var(--mystical-purple-deep) / 0.95) 100%);
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  /* Starfield Background Effect */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(1px 1px at 20px 30px, hsl(var(--divine-gold)), transparent),
+      radial-gradient(1px 1px at 40px 70px, hsl(var(--celestial-blue)), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(var(--starlight)), transparent),
+      radial-gradient(1px 1px at 160px 120px, hsl(var(--mystical-purple-bright)), transparent);
+    background-size: 300px 300px;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+  }
+  
+  /* Divine Title Font */
+  .font-divine {
+    font-family: 'UnifrakturMaguntia', cursive;
+  }
+  
+  .font-mystical {
+    font-family: 'MedievalSharp', cursive;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--cosmic-night));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--gradient-gold);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-divine);
+  }
+}
+
+@layer components {
+  /* Attribute Bar Styles */
+  .attribute-bar {
+    @apply relative h-6 bg-cosmic-night-light rounded-full overflow-hidden border border-mystical-purple-deep;
+  }
+  
+  .attribute-bar-fill {
+    @apply h-full transition-all duration-500 ease-out;
+    background: var(--gradient-power);
+  }
+  
+  .attribute-bar-health {
+    background: var(--gradient-health);
+  }
+  
+  .attribute-bar-mana {
+    background: var(--gradient-mana);
+  }
+  
+  /* Divine Button Variants */
+  .btn-divine {
+    @apply relative px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    background: var(--gradient-divine);
+    color: hsl(var(--starlight));
+    border: 1px solid hsl(var(--mystical-purple-bright));
+    box-shadow: var(--shadow-divine);
+  }
+  
+  .btn-divine:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-divine), var(--shadow-gold);
+  }
+  
+  .btn-gold {
+    @apply relative px-4 py-2 rounded-md font-semibold;
+    background: var(--gradient-gold);
+    color: hsl(var(--cosmic-night));
+  }
+  
+  .btn-gold:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-gold);
+  }
+  
+  /* Divine Card Styles */
+  .card-divine {
+    @apply relative rounded-xl border border-mystical-purple-bright/30 p-6;
+    background: linear-gradient(135deg, hsl(var(--cosmic-night-light) / 0.95), hsl(var(--cosmic-night) / 0.95));
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-divine);
+  }
+  
+  .card-divine::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl opacity-20 pointer-events-none;
+    background: var(--gradient-divine);
+  }
+  
+  /* Input Styles */
+  .input-divine {
+    @apply w-full px-4 py-3 rounded-lg border border-mystical-purple-deep bg-cosmic-night-light text-starlight;
+    @apply focus:outline-none focus:ring-2 focus:ring-divine-gold focus:border-divine-gold;
+    @apply transition-all duration-300;
+  }
+  
+  .input-divine::placeholder {
+    @apply text-papyrus-aged;
+  }
+  
+  /* Cosmic Text Effects */
+  .text-divine-glow {
+    color: hsl(var(--divine-gold));
+    text-shadow: 0 0 10px hsl(var(--divine-gold) / 0.5);
+  }
+  
+  .text-mystical-glow {
+    color: hsl(var(--mystical-purple-bright));
+    text-shadow: 0 0 10px hsl(var(--mystical-purple-bright) / 0.5);
+  }
+  
+  /* Progressive Critical States */
+  .health-75 {
+    position: relative;
+  }
+  .health-75::after {
+    content: '🩸';
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    font-size: 1.5rem;
+    animation: blood-drop 3s ease-in-out infinite;
+    z-index: 1000;
+  }
+  
+  .health-50 {
+    position: relative;
+  }
+  .health-50::before {
+    content: '🩸🩸';
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    font-size: 2rem;
+    animation: blood-drops 2s ease-in-out infinite;
+    z-index: 1000;
+  }
+  
+  .health-25 {
+    animation: chaos-pulse 3s ease-in-out infinite;
+  }
+  .health-25 .card-divine {
+    background: linear-gradient(135deg, hsl(var(--blood-red) / 0.3), hsl(var(--chaos-dark) / 0.8));
+    border-color: hsl(var(--blood-red));
+    box-shadow: 0 0 30px hsl(var(--blood-red) / 0.5);
+  }
+  .health-25::after {
+    content: '🩸💀🩸';
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    animation: chaos-death 1.5s ease-in-out infinite;
+    z-index: 1000;
+  }
+  
+  .sanity-75 .text-divine-gold,
+  .sanity-75 .text-starlight {
+    color: hsl(var(--madness-yellow));
+    animation: color-shift 4s ease-in-out infinite;
+  }
+  
+  .sanity-50 {
+    animation: madness-flicker 2s ease-in-out infinite;
+  }
+  .sanity-50::before {
+    content: '👁️‍🗨️🌀👁️‍🗨️';
+    position: fixed;
+    top: 20%;
+    right: 20%;
+    font-size: 2rem;
+    animation: madness-eyes 3s ease-in-out infinite;
+    z-index: 1000;
+  }
+  
+  .sanity-25 {
+    animation: madness-extreme 1s ease-in-out infinite;
+  }
+  .sanity-25 .card-divine {
+    background: linear-gradient(135deg, hsl(var(--madness-yellow) / 0.4), hsl(var(--insanity-green) / 0.5));
+    border-color: hsl(var(--madness-yellow));
+    box-shadow: 0 0 40px hsl(var(--madness-yellow) / 0.6);
+  }
+  .sanity-25::after {
+    content: '🌀👁️🔮🌙⚡';
+    position: fixed;
+    bottom: 10%;
+    left: 10%;
+    font-size: 4rem;
+    animation: insanity-swirl 2s linear infinite;
+    z-index: 1000;
+  }
+
+  /* God-specific critical states - Deméter Plant Invasion */
+  .god-demeter.sanity-75::before {
+    content: '';
+    position: fixed;
+    top: -50px;
+    right: -20px;
+    width: 200px;
+    height: 300px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 300 Q40 250 60 200 Q80 150 100 100 Q120 50 140 20 Q160 10 180 0' stroke='%23228B22' stroke-width='3' fill='none'/%3E%3Cpath d='M50 280 Q70 230 90 180 Q110 130 130 80 Q150 30 170 10' stroke='%234169E1' stroke-width='2' fill='none'/%3E%3Cg%3E%3Cellipse cx='40' cy='220' rx='15' ry='8' fill='%23228B22' opacity='0.8'/%3E%3Cellipse cx='80' cy='160' rx='12' ry='6' fill='%23228B22' opacity='0.7'/%3E%3Cellipse cx='120' cy='100' rx='10' ry='5' fill='%23228B22' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E") no-repeat;
+    background-size: contain;
+    opacity: 0;
+    transform: translateY(50px) scale(0.7);
+    animation: plant-invasion-stage1 4s ease-out forwards;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  
+  .god-demeter.sanity-50::before {
+    content: '';
+    position: fixed;
+    top: -30px;
+    left: -20px;
+    width: 180px;
+    height: 250px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M160 250 Q140 200 120 150 Q100 100 80 50 Q60 20 40 0' stroke='%23228B22' stroke-width='4' fill='none'/%3E%3Cpath d='M140 230 Q120 180 100 130 Q80 80 60 30' stroke='%234169E1' stroke-width='3' fill='none'/%3E%3Cg%3E%3Cellipse cx='140' cy='200' rx='18' ry='10' fill='%23228B22' opacity='0.9'/%3E%3Cellipse cx='100' cy='140' rx='15' ry='8' fill='%23228B22' opacity='0.8'/%3E%3Cellipse cx='60' cy='80' rx='12' ry='6' fill='%23228B22' opacity='0.7'/%3E%3C/g%3E%3C/svg%3E") no-repeat;
+    background-size: contain;
+    opacity: 0;
+    transform: translateX(-50px) scale(0.8);
+    animation: plant-invasion-stage2 3s ease-out 1s forwards;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  
+  .god-demeter.sanity-50::after {
+    content: '';
+    position: fixed;
+    bottom: -40px;
+    right: 10%;
+    width: 150px;
+    height: 200px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 150 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 200 Q40 150 60 100 Q80 50 100 20 Q120 5 130 0' stroke='%23228B22' stroke-width='3' fill='none'/%3E%3Cpath d='M30 190 Q50 140 70 90 Q90 40 110 15' stroke='%234169E1' stroke-width='2' fill='none'/%3E%3Cg%3E%3Cellipse cx='35' cy='170' rx='14' ry='7' fill='%23228B22' opacity='0.8'/%3E%3Cellipse cx='65' cy='120' rx='11' ry='5' fill='%23228B22' opacity='0.7'/%3E%3Cellipse cx='95' cy='70' rx='9' ry='4' fill='%23228B22' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E") no-repeat;
+    background-size: contain;
+    opacity: 0;
+    transform: translateY(40px) scale(0.6);
+    animation: plant-invasion-stage2 3s ease-out 1.5s forwards;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  
+  .god-demeter.sanity-25::before {
+    content: '';
+    position: fixed;
+    top: 20%;
+    left: -30px;
+    width: 220px;
+    height: 350px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 350' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M190 350 Q170 300 150 250 Q130 200 110 150 Q90 100 70 50 Q50 20 30 0' stroke='%23228B22' stroke-width='5' fill='none'/%3E%3Cpath d='M170 330 Q150 280 130 230 Q110 180 90 130 Q70 80 50 30' stroke='%234169E1' stroke-width='4' fill='none'/%3E%3Cpath d='M200 320 Q180 270 160 220 Q140 170 120 120 Q100 70 80 40' stroke='%23228B22' stroke-width='3' fill='none'/%3E%3Cg%3E%3Cellipse cx='160' cy='280' rx='20' ry='12' fill='%23228B22' opacity='0.9'/%3E%3Cellipse cx='120' cy='220' rx='17' ry='10' fill='%23228B22' opacity='0.8'/%3E%3Cellipse cx='80' cy='160' rx='15' ry='8' fill='%23228B22' opacity='0.7'/%3E%3Cellipse cx='40' cy='100' rx='12' ry='6' fill='%23228B22' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E") no-repeat;
+    background-size: contain;
+    opacity: 0;
+    transform: translateX(-60px) scale(0.9);
+    animation: plant-invasion-chaos 2s ease-out forwards;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  
+  .god-demeter.sanity-25::after {
+    content: '';
+    position: fixed;
+    bottom: -50px;
+    left: 15%;
+    width: 200px;
+    height: 300px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 300 Q50 250 70 200 Q90 150 110 100 Q130 50 150 20 Q170 5 180 0' stroke='%23228B22' stroke-width='4' fill='none'/%3E%3Cpath d='M50 290 Q70 240 90 190 Q110 140 130 90 Q150 40 170 15' stroke='%234169E1' stroke-width='3' fill='none'/%3E%3Cpath d='M10 280 Q30 230 50 180 Q70 130 90 80 Q110 30 130 10' stroke='%23228B22' stroke-width='3' fill='none'/%3E%3Cg%3E%3Cellipse cx='45' cy='240' rx='18' ry='11' fill='%23228B22' opacity='0.9'/%3E%3Cellipse cx='85' cy='180' rx='16' ry='9' fill='%23228B22' opacity='0.8'/%3E%3Cellipse cx='125' cy='120' rx='14' ry='7' fill='%23228B22' opacity='0.7'/%3E%3Cellipse cx='165' cy='60' rx='12' ry='6' fill='%23228B22' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E") no-repeat;
+    background-size: contain;
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+    animation: plant-invasion-chaos 2s ease-out 0.5s forwards, plant-final-dominance 1s ease-out 3s forwards;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  
+  /* Additional chaos plants for complete invasion */
+  .god-demeter.sanity-25 {
+    position: relative;
+  }
+  
+  .god-demeter.sanity-25 .card-divine {
+    background: linear-gradient(135deg, hsl(var(--demeter-earth) / 0.4), hsl(var(--demeter-green) / 0.6));
+    border-color: hsl(var(--demeter-green));
+    box-shadow: 0 0 40px hsl(var(--demeter-green) / 0.6);
+    backdrop-filter: blur(2px);
+  }
+  
+  .god-poseidon.health-50::before {
+    content: '🌊🐟🌊';
+    animation: waves-crash 2s ease-in-out infinite;
+  }
+  
+  .god-helio.health-50::before {
+    content: '☀️🔥☀️';
+    animation: solar-flare 1.5s ease-in-out infinite;
+  }
+  
+  .god-artemis.sanity-50::before {
+    content: '🏹🌙🦌';
+    animation: hunt-madness 2.5s ease-in-out infinite;
+  }
+  
+  .god-hecate.sanity-25::after {
+    content: '🔮✨🌟💫⚡🌙';
+    animation: magic-chaos 1s linear infinite;
+  }
+  
+  .god-dionysus.sanity-50::before {
+    content: '🍷🎭🍇';
+    animation: dionysus-party 2s ease-in-out infinite;
+  }
+
+  /* God Themes */
+  .theme-helio {
+    --primary: var(--helio-gold);
+    --secondary: var(--helio-orange);
+    --gradient-divine: var(--helio-gradient);
+  }
+  
+  .theme-artemis {
+    --primary: var(--artemis-silver);
+    --secondary: var(--artemis-blue);
+    --gradient-divine: var(--artemis-gradient);
+  }
+  
+  .theme-hecate {
+    --primary: var(--hecate-magic);
+    --secondary: var(--hecate-purple);
+    --gradient-divine: var(--hecate-gradient);
+  }
+  
+  .theme-dionysus {
+    --primary: var(--dionysus-party);
+    --secondary: var(--dionysus-wine);
+    --gradient-divine: var(--dionysus-gradient);
+  }
+  
+  .theme-demeter {
+    --primary: var(--demeter-harvest);
+    --secondary: var(--demeter-green);
+    --gradient-divine: var(--demeter-gradient);
+  }
+  
+  .theme-poseidon {
+    --primary: var(--poseidon-foam);
+    --secondary: var(--poseidon-blue);
+    --gradient-divine: var(--poseidon-gradient);
+  }
+}
+
+@layer utilities {
+  @keyframes blood-drop {
+    0%, 100% { transform: translateY(-10px); opacity: 0; }
+    50% { transform: translateY(10px); opacity: 1; }
+  }
+  
+  @keyframes blood-drops {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+    50% { transform: scale(1.2) rotate(5deg); opacity: 1; }
+  }
+  
+  @keyframes chaos-death {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1) rotate(5deg); }
+  }
+  
+  @keyframes color-shift {
+    0%, 100% { filter: hue-rotate(0deg); }
+    25% { filter: hue-rotate(30deg); }
+    50% { filter: hue-rotate(60deg); }
+    75% { filter: hue-rotate(90deg); }
+  }
+  
+  @keyframes madness-eyes {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(10deg) scale(1.1); }
+    50% { transform: rotate(-10deg) scale(0.9); }
+    75% { transform: rotate(5deg) scale(1.05); }
+  }
+  
+  @keyframes insanity-swirl {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes plants-grow {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.3) rotate(10deg); }
+  }
+  
+  @keyframes forest-takeover {
+    0%, 100% { transform: scale(1); filter: hue-rotate(0deg); }
+    50% { transform: scale(1.5); filter: hue-rotate(60deg); }
+  }
+  
+  /* Deméter Plant Invasion Animations */
+  @keyframes plant-invasion-stage1 {
+    0% { 
+      opacity: 0; 
+      transform: translateY(50px) translateX(30px) scale(0.7) rotate(-10deg); 
+    }
+    30% { 
+      opacity: 0.3; 
+      transform: translateY(30px) translateX(20px) scale(0.8) rotate(-5deg); 
+    }
+    70% { 
+      opacity: 0.7; 
+      transform: translateY(10px) translateX(10px) scale(0.9) rotate(-2deg); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0px) translateX(0px) scale(1) rotate(0deg); 
+    }
+  }
+  
+  @keyframes plant-invasion-stage2 {
+    0% { 
+      opacity: 0; 
+      transform: translateX(-50px) translateY(20px) scale(0.6) rotate(15deg); 
+    }
+    40% { 
+      opacity: 0.4; 
+      transform: translateX(-30px) translateY(10px) scale(0.75) rotate(10deg); 
+    }
+    80% { 
+      opacity: 0.8; 
+      transform: translateX(-10px) translateY(5px) scale(0.9) rotate(3deg); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateX(0px) translateY(0px) scale(1) rotate(0deg); 
+    }
+  }
+  
+  @keyframes plant-invasion-chaos {
+    0% { 
+      opacity: 0; 
+      transform: translateX(-60px) translateY(30px) scale(0.5) rotate(-20deg); 
+    }
+    20% { 
+      opacity: 0.2; 
+      transform: translateX(-45px) translateY(20px) scale(0.6) rotate(-15deg); 
+    }
+    50% { 
+      opacity: 0.6; 
+      transform: translateX(-20px) translateY(10px) scale(0.8) rotate(-8deg); 
+    }
+    80% { 
+      opacity: 0.9; 
+      transform: translateX(-5px) translateY(2px) scale(0.95) rotate(-2deg); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateX(0px) translateY(0px) scale(1) rotate(0deg); 
+    }
+  }
+  
+  @keyframes plant-final-dominance {
+    0% { 
+      filter: brightness(1) saturate(1); 
+    }
+    50% { 
+      filter: brightness(1.1) saturate(1.3); 
+    }
+    100% { 
+      filter: brightness(1.05) saturate(1.2); 
+    }
+  }
+  
+  /* Deméter Plant Invasion Animations */
+  @keyframes plant-invasion-stage1 {
+    0% { 
+      opacity: 0; 
+      transform: translateY(50px) translateX(30px) scale(0.7) rotate(-10deg); 
+    }
+    30% { 
+      opacity: 0.3; 
+      transform: translateY(30px) translateX(20px) scale(0.8) rotate(-5deg); 
+    }
+    70% { 
+      opacity: 0.7; 
+      transform: translateY(10px) translateX(10px) scale(0.9) rotate(-2deg); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0px) translateX(0px) scale(1) rotate(0deg); 
+    }
+  }
+  
+  @keyframes plant-invasion-stage2 {
+    0% { 
+      opacity: 0; 
+      transform: translateX(-50px) translateY(20px) scale(0.6) rotate(15deg); 
+    }
+    40% { 
+      opacity: 0.4; 
+      transform: translateX(-30px) translateY(10px) scale(0.75) rotate(10deg); 
+    }
+    80% { 
+      opacity: 0.8; 
+      transform: translateX(-10px) translateY(5px) scale(0.9) rotate(3deg); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateX(0px) translateY(0px) scale(1) rotate(0deg); 
+    }
+  }
+  
+  @keyframes plant-invasion-chaos {
+    0% { 
+      opacity: 0; 
+      transform: translateX(-60px) translateY(30px) scale(0.5) rotate(-20deg); 
+    }
+    20% { 
+      opacity: 0.2; 
+      transform: translateX(-45px) translateY(20px) scale(0.6) rotate(-15deg); 
+    }
+    50% { 
+      opacity: 0.6; 
+      transform: translateX(-20px) translateY(10px) scale(0.8) rotate(-8deg); 
+    }
+    80% { 
+      opacity: 0.9; 
+      transform: translateX(-5px) translateY(2px) scale(0.95) rotate(-2deg); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateX(0px) translateY(0px) scale(1) rotate(0deg); 
+    }
+  }
+  
+  @keyframes plant-final-dominance {
+    0% { 
+      filter: brightness(1) saturate(1); 
+    }
+    50% { 
+      filter: brightness(1.1) saturate(1.3); 
+    }
+    100% { 
+      filter: brightness(1.05) saturate(1.2); 
+    }
+  }
+  
+  @keyframes waves-crash {
+    0%, 100% { transform: translateX(-5px); }
+    50% { transform: translateX(5px) scale(1.1); }
+  }
+  
+  @keyframes solar-flare {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.2); filter: brightness(1.5); }
+  }
+  
+  @keyframes hunt-madness {
+    0%, 100% { transform: rotate(0deg); opacity: 0.8; }
+    50% { transform: rotate(10deg); opacity: 1; }
+  }
+  
+  @keyframes magic-chaos {
+    from { transform: rotate(0deg) scale(1); filter: hue-rotate(0deg); }
+    to { transform: rotate(360deg) scale(1.2); filter: hue-rotate(360deg); }
+  }
+  
+  @keyframes dionysus-party {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(5deg); }
+    50% { transform: scale(0.9) rotate(-5deg); }
+    75% { transform: scale(1.05) rotate(3deg); }
+  }
+  
+  @keyframes chaos-pulse {
+    0%, 100% { 
+      filter: brightness(1) saturate(1); 
+    }
+    50% { 
+      filter: brightness(0.7) saturate(1.5) hue-rotate(10deg); 
+    }
+  }
+  
+  @keyframes madness-flicker {
+    0%, 90%, 100% { 
+      opacity: 1; 
+      filter: brightness(1); 
+    }
+    5%, 15%, 25%, 35% { 
+      opacity: 0.8; 
+      filter: brightness(1.2) hue-rotate(30deg); 
+    }
+  }
+  
+  @keyframes madness-extreme {
+    0%, 100% { 
+      filter: brightness(1) hue-rotate(0deg); 
+    }
+    25% { 
+      filter: brightness(1.3) hue-rotate(90deg); 
+    }
+    50% { 
+      filter: brightness(0.7) hue-rotate(180deg); 
+    }
+    75% { 
+      filter: brightness(1.1) hue-rotate(270deg); 
+    }
+  }
+  
+  @keyframes divine-pulse {
+    0%, 100% { 
+      transform: scale(1); 
+      opacity: 0.8; 
+    }
+    50% { 
+      transform: scale(1.05); 
+      opacity: 1; 
+    }
+  }
+  
+  @keyframes cosmic-float {
+    0%, 100% { 
+      transform: translateY(0px); 
+    }
+    50% { 
+      transform: translateY(-10px); 
+    }
+  }
+  
+  .animate-divine-pulse {
+    animation: divine-pulse 3s ease-in-out infinite;
+  }
+  
+  .animate-cosmic-float {
+    animation: cosmic-float 6s ease-in-out infinite;
+  }
+}
