@@ -528,6 +528,62 @@ const Index = () => {
             />
           </div>
         </div>
+                    <div><br /></div>
+
+        {/* Ferramentas Divinas - VERSÃO SEGURA */}
+<div className="card-divine mb-8">
+  <div className="flex items-center gap-3 mb-6">
+    <span className="text-2xl">🛠️</span>
+    <h2 className="text-xl font-cinzel font-bold text-divine-gold">
+      Ferramentas do Olimpo
+    </h2>
+  </div>
+
+  <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+    
+    {/* Rolador de Dados Divinos */}
+    <div className="card-divine-inner">
+      <h3 className="text-lg font-cinzel text-divine-gold mb-4">🎲 Dados Divinos</h3>
+      <DivineDiceRoller 
+        characterData={characterData}
+        attributes={primaryAttributes}
+      />
+    </div>
+
+    {/* Gerador de Nomes Gregos */}
+    <div className="card-divine-inner">
+      <h3 className="text-lg font-cinzel text-divine-gold mb-4">📛 Nomes Gregos</h3>
+      <GreekNameGenerator onNameSelect={handleNameSelect} />
+    </div>
+
+    {/* Oráculo de Delfos */}
+    <div className="card-divine-inner">
+      <h3 className="text-lg font-cinzel text-divine-gold mb-4">🔮 Oráculo</h3>
+      <DelphiOracle characterData={characterData} />
+    </div>
+
+    {/* Transformação Divina */}
+    <div className="card-divine-inner">
+      <h3 className="text-lg font-cinzel text-divine-gold mb-4">✨ Transformação</h3>
+      <DivineTransformation 
+        characterData={characterData}
+        skills={specialSkills}
+      />
+    </div>
+
+    {/* Calculadora de Combate */}
+    <div className="card-divine-inner">
+      <h3 className="text-lg font-cinzel text-divine-gold mb-4">⚔️ Combate</h3>
+      <CombatCalculator 
+        characterData={characterData}
+        attributes={primaryAttributes}
+        skills={specialSkills}
+      />
+    </div>
+
+  </div>
+</div>
+
 
         {/* Footer */}
         <div className="text-center mt-12 text-papyrus-aged">
@@ -539,5 +595,6 @@ const Index = () => {
     </div>
   );
 };
+
 
 export default Index;

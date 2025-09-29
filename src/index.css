@@ -802,3 +802,14 @@
     animation: cosmic-float 6s ease-in-out infinite;
   }
 }
+
+.card-divine-inner {
+  background-color: hsl(var(--cosmic-night-light));
+  border: 1px solid hsl(var(--mystical-purple-deep));
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.card-divine-inner:hover {
+  border-color: hsl(var(--mystical-purple-bright));
+}
